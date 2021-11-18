@@ -1,0 +1,1048 @@
+[
+  {
+    "_id": "86136692-1201-4fff-a89c-d4d014e4128e",
+    "buyin": 0.03,
+    "cash": "$0.01/$0.02 ",
+    "categoryGame": "CASH_GAME",
+    "communityCards": [
+      "Js",
+      "3d",
+      "As"
+    ],
+    "currency": "USD",
+    "date": {
+      "$date": "2021-06-13T23:57:17.000Z"
+    },
+    "hand": "227563993216",
+    "hhPlayer": {
+      "p_ID": 33,
+      "chips": 1.54,
+      "hand": [
+        "2d",
+        "2c"
+      ],
+      "nickname": "Fabio_Bap",
+      "gamePosition": "UTG",
+      "position": 8
+    },
+    "idUser": "4545fff4-38b3-4551-a7d1-1851c688e4ca",
+    "platform": "POKER_STARS",
+    "players": [
+      {
+        "p_ID": 10,
+        "chips": 3.09,
+        "gamePosition": "MP",
+        "nickname": "ChipMaster633",
+        "position": 1
+      },
+      {
+        "p_ID": 20,
+        "chips": 1.98,
+        "gamePosition": "MP1",
+        "nickname": "Edersong",
+        "position": 2
+      },
+      {
+        "p_ID": 64,
+        "chips": 2,
+        "gamePosition": "LP",
+        "nickname": "WG8978",
+        "position": 3
+      },
+      {
+        "p_ID": 72,
+        "chips": 1.19,
+        "gamePosition": "CO",
+        "nickname": "Artishell",
+        "position": 4
+      },
+      {
+        "p_ID": 99,
+        "chips": 1.08,
+        "gamePosition": "BTN",
+        "nickname": "dias&pacheco",
+        "position": 5
+      },
+      {
+        "p_ID": 105,
+        "chips": 1.99,
+        "gamePosition": "SB",
+        "nickname": "jamiej36830",
+        "position": 6,
+        "smallBlind": 0.01
+      },
+      {
+        "p_ID": 250,
+        "bigBlind": 0.02,
+        "chips": 1.81,
+        "gamePosition": "BB",
+        "nickname": "VainKazunama",
+        "position": 7
+      },
+      {
+        "p_ID": 33,
+        "chips": 1.54,
+        "gamePosition": "UTG",
+        "hand": [
+          "2d",
+          "2c"
+        ],
+        "nickname": "Fabio_Bap",
+        "position": 8
+      }
+    ],
+    "positions": 9,
+    "rake": 0.03,
+    "rounds": [
+      {
+        "action": "CALLS",
+        "index": 0,
+        "player": "Fabio_Bap",
+        "step": "HOLE_CARDS",
+        "value": 0.02
+      },
+      {
+        "action": "FOLDS",
+        "index": 1,
+        "player": "ChipMaster633",
+        "step": "HOLE_CARDS"
+      },
+      {
+        "action": "RAISES",
+        "index": 2,
+        "player": "Edersong",
+        "step": "HOLE_CARDS",
+        "value": 0.06
+      },
+      {
+        "action": "FOLDS",
+        "index": 3,
+        "player": "WG8978",
+        "step": "HOLE_CARDS"
+      },
+      {
+        "action": "CALLS",
+        "index": 4,
+        "player": "Artishell",
+        "step": "HOLE_CARDS",
+        "value": 0.06
+      },
+      {
+        "action": "FOLDS",
+        "index": 5,
+        "player": "dias&pacheco",
+        "step": "HOLE_CARDS"
+      },
+      {
+        "action": "CALLS",
+        "index": 6,
+        "player": "jamiej36830",
+        "step": "HOLE_CARDS",
+        "value": 0.05
+      },
+      {
+        "action": "CALLS",
+        "index": 7,
+        "player": "VainKazunama",
+        "step": "HOLE_CARDS",
+        "value": 0.04
+      },
+      {
+        "action": "CALLS",
+        "index": 8,
+        "player": "Fabio_Bap",
+        "step": "HOLE_CARDS",
+        "value": 0.04
+      },
+      {
+        "action": "FLOP",
+        "cards": [
+          "Js",
+          "3d",
+          "As"
+        ],
+        "index": 9,
+        "step": "FLOP"
+      },
+      {
+        "action": "CHECKS",
+        "index": 10,
+        "player": "jamiej36830",
+        "step": "FLOP"
+      },
+      {
+        "action": "CHECKS",
+        "index": 11,
+        "player": "VainKazunama",
+        "step": "FLOP"
+      },
+      {
+        "action": "CHECKS",
+        "index": 12,
+        "player": "Fabio_Bap",
+        "step": "FLOP"
+      },
+      {
+        "action": "BETS",
+        "index": 13,
+        "player": "Edersong",
+        "step": "FLOP",
+        "value": 0.1
+      },
+      {
+        "action": "FOLDS",
+        "index": 14,
+        "player": "Artishell",
+        "step": "FLOP"
+      },
+      {
+        "action": "CALLS",
+        "index": 15,
+        "player": "jamiej36830",
+        "step": "FLOP",
+        "value": 0.1
+      },
+      {
+        "action": "FOLDS",
+        "index": 16,
+        "player": "VainKazunama",
+        "step": "FLOP"
+      },
+      {
+        "action": "FOLDS",
+        "index": 17,
+        "player": "Fabio_Bap",
+        "step": "FLOP"
+      },
+      {
+        "action": "TURN",
+        "cards": [
+          "Qc"
+        ],
+        "index": 18,
+        "step": "TURN"
+      },
+      {
+        "action": "CHECKS",
+        "index": 19,
+        "player": "jamiej36830",
+        "step": "TURN"
+      },
+      {
+        "action": "BETS",
+        "index": 20,
+        "player": "Edersong",
+        "step": "TURN",
+        "value": 0.2
+      },
+      {
+        "action": "CALLS",
+        "index": 21,
+        "player": "jamiej36830",
+        "step": "TURN",
+        "value": 0.2
+      },
+      {
+        "action": "RIVER",
+        "cards": [
+          "7d"
+        ],
+        "index": 22,
+        "step": "RIVER"
+      },
+      {
+        "action": "CHECKS",
+        "index": 23,
+        "player": "jamiej36830",
+        "step": "RIVER"
+      },
+      {
+        "action": "BETS",
+        "index": 24,
+        "player": "Edersong",
+        "step": "RIVER",
+        "value": 0.44
+      },
+      {
+        "action": "FOLDS",
+        "index": 25,
+        "player": "jamiej36830",
+        "step": "RIVER"
+      },
+      {
+        "action": "UNCALLED_BET",
+        "actionIndex": 24,
+        "index": 26,
+        "player": "Edersong",
+        "step": "RIVER",
+        "value": 0.44
+      },
+      {
+        "action": "COLLECTED_FROM_POT",
+        "index": 27,
+        "player": "Edersong",
+        "step": "RIVER",
+        "value": 0.87
+      },
+      {
+        "action": "DOENST_SHOW_HAND",
+        "index": 28,
+        "player": "Edersong",
+        "step": "RIVER"
+      }
+    ],
+    "table": "Jole II",
+    "totalPot": 0.9,
+    "type": "Hold'em No Limit",
+    "win": false
+  },
+  {
+    "_id": "a7606002-755d-4461-b1c9-c6615d0ca726",
+    "buyin": 0.03,
+    "cash": "$0.01/$0.02 ",
+    "categoryGame": "CASH_GAME",
+    "communityCards": [
+      "4h",
+      "Js",
+      "Qd"
+    ],
+    "currency": "USD",
+    "date": {
+      "$date": "2021-06-13T23:55:19.000Z"
+    },
+    "hand": "227563967187",
+    "hhPlayer": {
+      "p_ID": 33,
+      "gamePosition": "CO",
+      "chips": 1.56,
+      "hand": [
+        "2s",
+        "Jd"
+      ],
+      "nickname": "Fabio_Bap",
+      "position": 9
+    },
+    "idUser": "4545fff4-38b3-4551-a7d1-1851c688e4ca",
+    "platform": "POKER_STARS",
+    "players": [
+      {
+        "p_ID": 85,
+        "gamePosition": "MP",
+        "chips": 2.47,
+        "desc": "two pair, Aces and Queens",
+        "nickname": "ChipMaster633",
+        "position": 1
+      },
+      {
+        "p_ID": 152,
+        "gamePosition": "MP1",
+        "chips": 1.98,
+        "nickname": "Edersong",
+        "position": 2
+      },
+      {
+        "p_ID": 102,
+        "gamePosition": "LP",
+        "chips": 2,
+        "nickname": "WG8978",
+        "position": 3
+      },
+      {
+        "p_ID": 290,
+        "gamePosition": "UTG1",
+        "chips": 0.55,
+        "desc": "a pair of Aces",
+        "nickname": "CasObserver",
+        "position": 4
+      },
+      {
+        "p_ID": 333,
+        "chips": 1.19,
+        "gamePosition": "BTN",
+        "nickname": "Artishell",
+        "position": 5
+      },
+      {
+        "p_ID": 100,
+        "gamePosition": "SB",
+        "chips": 1.09,
+        "nickname": "dias&pacheco",
+        "position": 6,
+        "smallBlind": 0.01
+      },
+      {
+        "p_ID": 656,
+        "gamePosition": "BB",
+        "bigBlind": 0.02,
+        "chips": 2.07,
+        "nickname": "jamiej36830",
+        "position": 7
+      },
+      {
+        "p_ID": 45,
+        "gamePosition": "UTG",
+        "chips": 1.81,
+        "nickname": "VainKazunama",
+        "position": 8
+      },
+      {
+        "p_ID": 33,
+        "gamePosition": "CO",
+        "chips": 1.56,
+        "hand": [
+          "2s",
+          "Jd"
+        ],
+        "nickname": "Fabio_Bap",
+        "position": 9
+      }
+    ],
+    "positions": 9,
+    "rake": 0.04,
+    "rounds": [
+      {
+        "action": "FOLDS",
+        "index": 0,
+        "player": "VainKazunama",
+        "step": "HOLE_CARDS"
+      },
+      {
+        "action": "CALLS",
+        "index": 1,
+        "player": "Fabio_Bap",
+        "step": "HOLE_CARDS",
+        "value": 0.02
+      },
+      {
+        "action": "RAISES",
+        "index": 2,
+        "player": "ChipMaster633",
+        "step": "HOLE_CARDS",
+        "value": 0.04
+      },
+      {
+        "action": "FOLDS",
+        "index": 3,
+        "player": "Edersong",
+        "step": "HOLE_CARDS"
+      },
+      {
+        "action": "FOLDS",
+        "index": 4,
+        "player": "WG8978",
+        "step": "HOLE_CARDS"
+      },
+      {
+        "action": "RAISES",
+        "index": 5,
+        "player": "CasObserver",
+        "step": "HOLE_CARDS",
+        "value": 0.08
+      },
+      {
+        "action": "FOLDS",
+        "index": 6,
+        "player": "Artishell",
+        "step": "HOLE_CARDS"
+      },
+      {
+        "action": "FOLDS",
+        "index": 7,
+        "player": "dias&pacheco",
+        "step": "HOLE_CARDS"
+      },
+      {
+        "action": "CALLS",
+        "index": 8,
+        "player": "jamiej36830",
+        "step": "HOLE_CARDS",
+        "value": 0.06
+      },
+      {
+        "action": "FOLDS",
+        "index": 9,
+        "player": "Fabio_Bap",
+        "step": "HOLE_CARDS"
+      },
+      {
+        "action": "CALLS",
+        "index": 10,
+        "player": "ChipMaster633",
+        "step": "HOLE_CARDS",
+        "value": 0.04
+      },
+      {
+        "action": "FLOP",
+        "cards": [
+          "4h",
+          "Js",
+          "Qd"
+        ],
+        "index": 11,
+        "step": "FLOP"
+      },
+      {
+        "action": "CHECKS",
+        "index": 12,
+        "player": "jamiej36830",
+        "step": "FLOP"
+      },
+      {
+        "action": "CHECKS",
+        "index": 13,
+        "player": "ChipMaster633",
+        "step": "FLOP"
+      },
+      {
+        "action": "BETS",
+        "index": 14,
+        "player": "CasObserver",
+        "step": "FLOP",
+        "value": 0.16
+      },
+      {
+        "action": "FOLDS",
+        "index": 15,
+        "player": "jamiej36830",
+        "step": "FLOP"
+      },
+      {
+        "action": "CALLS",
+        "index": 16,
+        "player": "ChipMaster633",
+        "step": "FLOP",
+        "value": 0.16
+      },
+      {
+        "action": "TURN",
+        "cards": [
+          "5s"
+        ],
+        "index": 17,
+        "step": "TURN"
+      },
+      {
+        "action": "CHECKS",
+        "index": 18,
+        "player": "ChipMaster633",
+        "step": "TURN"
+      },
+      {
+        "action": "CHECKS",
+        "index": 19,
+        "player": "CasObserver",
+        "step": "TURN"
+      },
+      {
+        "action": "RIVER",
+        "cards": [
+          "Ad"
+        ],
+        "index": 20,
+        "step": "RIVER"
+      },
+      {
+        "action": "CHECKS",
+        "index": 21,
+        "player": "ChipMaster633",
+        "step": "RIVER"
+      },
+      {
+        "action": "BETS",
+        "fgAllIn": true,
+        "index": 22,
+        "player": "CasObserver",
+        "step": "RIVER",
+        "value": 0.31
+      },
+      {
+        "action": "CALLS",
+        "index": 23,
+        "player": "ChipMaster633",
+        "step": "RIVER",
+        "value": 0.31
+      },
+      {
+        "action": "SHOWS",
+        "cards": [
+          "2d",
+          "Ah"
+        ],
+        "desc": "a pair of Aces",
+        "index": 24,
+        "player": "CasObserver",
+        "step": "SHOW_DOWN"
+      },
+      {
+        "action": "SHOWS",
+        "cards": [
+          "As",
+          "Qh"
+        ],
+        "desc": "two pair, Aces and Queens",
+        "index": 25,
+        "player": "ChipMaster633",
+        "step": "SHOW_DOWN"
+      },
+      {
+        "action": "COLLECTED_FROM_POT",
+        "index": 26,
+        "player": "ChipMaster633",
+        "step": "SHOW_DOWN",
+        "value": 1.17
+      }
+    ],
+    "table": "Jole II",
+    "totalPot": 1.21,
+    "type": "Hold'em No Limit",
+    "win": false
+  },
+  {
+    "_id": "3Test-a7606002-755d-4461-b1c9-c6615d0ca726",
+    "buyin": 0.03,
+    "cash": "$0.01/$0.02 ",
+    "categoryGame": "CASH_GAME",
+    "communityCards": [
+      "4h",
+      "Js",
+      "Qd"
+    ],
+    "currency": "USD",
+    "date": {
+      "$date": "2021-06-13T23:55:19.000Z"
+    },
+    "hand": "227563967187",
+    "hhPlayer": {
+      "p_ID": 33,
+      "gamePosition": "CO",
+      "chips": 1.56,
+      "hand": [
+        "2s",
+        "Jd"
+      ],
+      "nickname": "Fabio_Bap",
+      "position": 7
+    },
+    "idUser": "4545fff4-38b3-4551-a7d1-1851c688e4ca",
+    "platform": "POKER_STARS",
+    "players": [
+      {
+        "p_ID": 85,
+        "gamePosition": "MP",
+        "chips": 2.47,
+        "desc": "two pair, Aces and Queens",
+        "nickname": "ChipMaster633",
+        "position": 1
+      },
+      {
+        "p_ID": 102,
+        "gamePosition": "LP",
+        "chips": 2,
+        "nickname": "WG8978",
+        "position": 2
+      },
+      {
+        "p_ID": 333,
+        "chips": 1.19,
+        "gamePosition": "BTN",
+        "nickname": "Artishell",
+        "position": 3
+      },
+      {
+        "p_ID": 100,
+        "gamePosition": "SB",
+        "chips": 1.09,
+        "nickname": "dias&pacheco",
+        "position": 4,
+        "smallBlind": 0.01
+      },
+      {
+        "p_ID": 656,
+        "gamePosition": "BB",
+        "bigBlind": 0.02,
+        "chips": 2.07,
+        "nickname": "jamiej36830",
+        "position": 5
+      },
+      {
+        "p_ID": 656,
+        "gamePosition": "CO",
+        "bigBlind": 0.02,
+        "chips": 2.07,
+        "nickname": "jamiej36830",
+        "position": 6
+      },
+      {
+        "p_ID": 33,
+        "gamePosition": "MP",
+        "chips": 1.56,
+        "hand": [
+          "2s",
+          "Jd"
+        ],
+        "nickname": "Fabio_Bap",
+        "position": 7
+      }
+    ],
+    "positions": 7,
+    "rake": 0.04,
+    "table": "Jole II",
+    "totalPot": 1.21,
+    "type": "Hold'em No Limit",
+    "win": false
+  },
+  {
+    "_id": "3Test-a7606002-755d-4461-b1c9-c6615d0ca726",
+    "buyin": 0.03,
+    "cash": "$0.01/$0.02 ",
+    "categoryGame": "CASH_GAME",
+    "communityCards": [
+      "4h",
+      "Js",
+      "Qd"
+    ],
+    "currency": "USD",
+    "date": {
+      "$date": "2021-06-13T23:55:19.000Z"
+    },
+    "hand": "227563967187",
+    "hhPlayer": {
+      "p_ID": 33,
+      "gamePosition": "CO",
+      "chips": 1.56,
+      "hand": [
+        "2s",
+        "Jd"
+      ],
+      "nickname": "Fabio_Bap",
+      "position": 6
+    },
+    "idUser": "4545fff4-38b3-4551-a7d1-1851c688e4ca",
+    "platform": "POKER_STARS",
+    "players": [
+      {
+        "p_ID": 85,
+        "gamePosition": "MP",
+        "chips": 2.47,
+        "desc": "two pair, Aces and Queens",
+        "nickname": "ChipMaster633",
+        "position": 1
+      },
+      {
+        "p_ID": 102,
+        "gamePosition": "LP",
+        "chips": 2,
+        "nickname": "WG8978",
+        "position": 2
+      },
+      {
+        "p_ID": 333,
+        "chips": 1.19,
+        "gamePosition": "BTN",
+        "nickname": "Artishell",
+        "position": 3
+      },
+      {
+        "p_ID": 100,
+        "gamePosition": "SB",
+        "chips": 1.09,
+        "nickname": "dias&pacheco",
+        "position": 4,
+        "smallBlind": 0.01
+      },
+      {
+        "p_ID": 656,
+        "gamePosition": "BB",
+        "bigBlind": 0.02,
+        "chips": 2.07,
+        "nickname": "jamiej36830",
+        "position": 5
+      },
+      {
+        "p_ID": 33,
+        "gamePosition": "CO",
+        "chips": 1.56,
+        "hand": [
+          "2s",
+          "Jd"
+        ],
+        "nickname": "Fabio_Bap",
+        "position": 6
+      }
+    ],
+    "positions": 6,
+    "rake": 0.04,
+    "table": "Jole II",
+    "totalPot": 1.21,
+    "type": "Hold'em No Limit",
+    "win": false
+  },
+  {
+    "_id": "3Test-a7606002-755d-4461-b1c9-c6615d0ca726",
+    "buyin": 0.03,
+    "cash": "$0.01/$0.02 ",
+    "categoryGame": "CASH_GAME",
+    "communityCards": [
+      "4h",
+      "Js",
+      "Qd"
+    ],
+    "currency": "USD",
+    "date": {
+      "$date": "2021-06-13T23:55:19.000Z"
+    },
+    "hand": "227563967187",
+    "hhPlayer": {
+      "p_ID": 33,
+      "gamePosition": "CO",
+      "chips": 1.56,
+      "hand": [
+        "2s",
+        "Jd"
+      ],
+      "nickname": "Fabio_Bap",
+      "position": 5
+    },
+    "idUser": "4545fff4-38b3-4551-a7d1-1851c688e4ca",
+    "platform": "POKER_STARS",
+    "players": [
+      {
+        "p_ID": 102,
+        "gamePosition": "LP",
+        "chips": 2,
+        "nickname": "WG8978",
+        "position": 1
+      },
+      {
+        "p_ID": 333,
+        "chips": 1.19,
+        "gamePosition": "BTN",
+        "nickname": "Artishell",
+        "position": 2
+      },
+      {
+        "p_ID": 100,
+        "gamePosition": "SB",
+        "chips": 1.09,
+        "nickname": "dias&pacheco",
+        "position": 3,
+        "smallBlind": 0.01
+      },
+      {
+        "p_ID": 656,
+        "gamePosition": "BB",
+        "bigBlind": 0.02,
+        "chips": 2.07,
+        "nickname": "jamiej36830",
+        "position": 4
+      },
+      {
+        "p_ID": 33,
+        "gamePosition": "CO",
+        "chips": 1.56,
+        "hand": [
+          "2s",
+          "Jd"
+        ],
+        "nickname": "Fabio_Bap",
+        "position": 5
+      }
+    ],
+    "positions": 5,
+    "rake": 0.04,
+    "table": "Jole II",
+    "totalPot": 1.21,
+    "type": "Hold'em No Limit",
+    "win": false
+  },
+  {
+    "_id": "3Test-a7606002-755d-4461-b1c9-c6615d0ca726",
+    "buyin": 0.03,
+    "cash": "$0.01/$0.02 ",
+    "categoryGame": "CASH_GAME",
+    "communityCards": [
+      "4h",
+      "Js",
+      "Qd"
+    ],
+    "currency": "USD",
+    "date": {
+      "$date": "2021-06-13T23:55:19.000Z"
+    },
+    "hand": "227563967187",
+    "hhPlayer": {
+      "p_ID": 33,
+      "gamePosition": "CO",
+      "chips": 1.56,
+      "hand": [
+        "2s",
+        "Jd"
+      ],
+      "nickname": "Fabio_Bap",
+      "position": 4
+    },
+    "idUser": "4545fff4-38b3-4551-a7d1-1851c688e4ca",
+    "platform": "POKER_STARS",
+    "players": [
+      {
+        "p_ID": 333,
+        "chips": 1.19,
+        "gamePosition": "BTN",
+        "nickname": "Artishell",
+        "position": 1
+      },
+      {
+        "p_ID": 100,
+        "gamePosition": "SB",
+        "chips": 1.09,
+        "nickname": "dias&pacheco",
+        "position": 2,
+        "smallBlind": 0.01
+      },
+      {
+        "p_ID": 656,
+        "gamePosition": "BB",
+        "bigBlind": 0.02,
+        "chips": 2.07,
+        "nickname": "jamiej36830",
+        "position": 3
+      },
+      {
+        "p_ID": 33,
+        "gamePosition": "CO",
+        "chips": 1.56,
+        "hand": [
+          "2s",
+          "Jd"
+        ],
+        "nickname": "Fabio_Bap",
+        "position": 4
+      }
+    ],
+    "positions": 4,
+    "rake": 0.04,
+    "table": "Jole II",
+    "totalPot": 1.21,
+    "type": "Hold'em No Limit",
+    "win": false
+  },
+  {
+    "_id": "3Test-a7606002-755d-4461-b1c9-c6615d0ca726",
+    "buyin": 0.03,
+    "cash": "$0.01/$0.02 ",
+    "categoryGame": "CASH_GAME",
+    "communityCards": [
+      "4h",
+      "Js",
+      "Qd"
+    ],
+    "currency": "USD",
+    "date": {
+      "$date": "2021-06-13T23:55:19.000Z"
+    },
+    "hand": "227563967187",
+    "hhPlayer": {
+      "p_ID": 33,
+      "gamePosition": "BB",
+      "chips": 1.56,
+      "hand": [
+        "2s",
+        "Jd"
+      ],
+      "nickname": "Fabio_Bap",
+      "position": 9
+    },
+    "idUser": "4545fff4-38b3-4551-a7d1-1851c688e4ca",
+    "platform": "POKER_STARS",
+    "players": [
+      {
+        "p_ID": 333,
+        "chips": 1.19,
+        "gamePosition": "BTN",
+        "nickname": "Artishell",
+        "position": 1
+      },
+      {
+        "p_ID": 100,
+        "gamePosition": "SB",
+        "chips": 1.09,
+        "nickname": "dias&pacheco",
+        "position": 2,
+        "smallBlind": 0.01
+      },
+      {
+        "p_ID": 33,
+        "gamePosition": "BB",
+        "chips": 1.56,
+        "hand": [
+          "2s",
+          "Jd"
+        ],
+        "nickname": "Fabio_Bap",
+        "position": 3
+      }
+    ],
+    "positions": 9,
+    "rake": 0.04,
+    "table": "Jole II",
+    "totalPot": 1.21,
+    "type": "Hold'em No Limit",
+    "win": false
+  },
+  {
+    "_id": "3Test-a7606002-755d-4461-b1c9-c6615d0ca726",
+    "buyin": 0.03,
+    "cash": "$0.01/$0.02 ",
+    "categoryGame": "CASH_GAME",
+    "communityCards": [
+      "4h",
+      "Js",
+      "Qd"
+    ],
+    "currency": "USD",
+    "date": {
+      "$date": "2021-06-13T23:55:19.000Z"
+    },
+    "hand": "227563967187",
+    "hhPlayer": {
+      "p_ID": 33,
+      "gamePosition": "BTN",
+      "chips": 1.56,
+      "hand": [
+        "2s",
+        "Jd"
+      ],
+      "nickname": "Fabio_Bap",
+      "position": 2
+    },
+    "idUser": "4545fff4-38b3-4551-a7d1-1851c688e4ca",
+    "platform": "POKER_STARS",
+    "players": [
+      {
+        "p_ID": 100,
+        "gamePosition": "SB",
+        "chips": 1.09,
+        "nickname": "dias&pacheco",
+        "position": 1,
+        "smallBlind": 0.01
+      },
+      {
+        "p_ID": 33,
+        "gamePosition": "BTN",
+        "chips": 1.56,
+        "hand": [
+          "2s",
+          "Jd"
+        ],
+        "nickname": "Fabio_Bap",
+        "position": 2
+      }
+    ],
+    "positions": 9,
+    "rake": 0.04,
+    "table": "Jole II",
+    "totalPot": 1.21,
+    "type": "Hold'em No Limit",
+    "win": false
+  }
+]

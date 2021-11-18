@@ -1,0 +1,577 @@
+//FOLDS
+.folds {
+    opacity: 0.3;
+    animation: alternate folds 0.5s 1; //infinite
+    -webkit-animation: alternate folds 0.5s 1; //infinite
+    .folds-reverse {
+        opacity: 0.3;
+        animation: reverse folds 0.5s 1; //infinite
+        -webkit-animation: reverse folds 0.5s 1; //infinite
+    }
+}
+//FOLDS END
+
+//FLOP TURN RIVER
+.flip-card.action-flip {
+    .flip-card-inner {
+        -webkit-animation: ease card-center-spinning 0.5s 1; //infinite
+        animation: ease card-center-spinning 0.5s 1; //infinite
+        transform: scale(1) rotateY(180deg) !important;
+        //opacity: 1;
+    }
+    &.action-flip-reverse .flip-card-inner {
+        -webkit-animation: reverse card-center-spinning-reverse 0.5s 1; //infinite
+        animation: reverse card-center-spinning-reverse 0.5s 1; //infinite
+        transform: scale(0) rotateY(0deg) !important;
+        //opacity: 0;
+    }
+}
+//FLOP TURN RIVER END
+
+[id^="area-"] {
+    //background-color: red;
+}
+
+[id^="area-1"] {
+}
+* {
+    &.calls-fade-reverse {
+        opacity: 0 !important;
+    }
+}
+/*
+chipsUp - de baixo pra cima
+chipsDown - de cima pra baixo
+
+chipsRight - esquerda para direita
+chipsLeft - direita para esquerda
+
+chipsDownRight - de cima pra direita e pra cima
+chipsDownLeft - de cima pra esquerda e pra cima
+
+chipsUpRight - de baixo pra cima e pra direita
+chipsUpLeft -  de baixo pra cima e pra esquerda
+*/
+[id^="area-9"] {
+    &[data-total-players="9"] {
+        .blind-number {
+            -webkit-animation: ease chipsUpLeft 0.3s 1;
+            animation: ease chipsUpLeft 0.3s 1;
+        }
+        .total-chips-value {
+            -webkit-animation: ease chipsUpLeft 0.3s 1;
+            animation: ease chipsUpLeft 0.3s 1;
+        }
+    }
+}
+[id^="area-8"] {
+    &[data-total-players="9"] {
+        .blind-number {
+            -webkit-animation: ease chipsUpRight 0.3s 1;
+            animation: ease chipsUpRight 0.3s 1;
+        }
+        .total-chips-value {
+            -webkit-animation: ease chipsUpRight 0.3s 1;
+            animation: ease chipsUpRight 0.3s 1;
+        }
+    }
+    &[data-total-players="8"] {
+        .blind-number {
+            -webkit-animation: ease chipsUpRight 0.3s 1;
+            animation: ease chipsUpRight 0.3s 1;
+        }
+        .total-chips-value {
+            -webkit-animation: ease chipsUpRight 0.3s 1;
+            animation: ease chipsUpRight 0.3s 1;
+        }
+    }
+}
+
+[id^="area-7"] {
+    &[data-total-players="9"] {
+        .blind-number {
+            -webkit-animation: ease chipsLeft 0.3s 1;
+            animation: ease chipsLeft 0.3s 1;
+        }
+        .total-chips-value {
+            -webkit-animation: ease chipsLeft 0.3s 1;
+            animation: ease chipsLeft 0.3s 1;
+        }
+    }
+    &[data-total-players="8"] {
+        .blind-number {
+            -webkit-animation: ease chipsLeft 0.3s 1;
+            animation: ease chipsLeft 0.3s 1;
+        }
+        .total-chips-value {
+            -webkit-animation: ease chipsLeft 0.3s 1;
+            animation: ease chipsLeft 0.3s 1;
+        }
+    }
+    &[data-total-players="7"] {
+        .blind-number {
+            -webkit-animation: ease chipsLeft 0.3s 1;
+            animation: ease chipsLeft 0.3s 1;
+        }
+        .total-chips-value {
+            -webkit-animation: ease chipsLeft 0.3s 1;
+            animation: ease chipsLeft 0.3s 1;
+        }
+    }
+}
+
+[id^="area-6"] {
+    &[data-total-players="9"] {
+        .blind-number {
+            -webkit-animation: ease chipsRight 0.3s 1;
+            animation: ease chipsRight 0.3s 1;
+        }
+        .total-chips-value {
+            -webkit-animation: ease chipsRight 0.3s 1;
+            animation: ease chipsRight 0.3s 1;
+        }
+    }
+    &[data-total-players="8"] {
+        .blind-number {
+            -webkit-animation: ease chipsRight 0.3s 1;
+            animation: ease chipsRight 0.3s 1;
+        }
+        .total-chips-value {
+            -webkit-animation: ease chipsRight 0.3s 1;
+            animation: ease chipsRight 0.3s 1;
+        }
+    }
+    &[data-total-players="7"] {
+        .blind-number {
+            -webkit-animation: ease chipsRight 0.3s 1;
+            animation: ease chipsRight 0.3s 1;
+        }
+        .total-chips-value {
+            -webkit-animation: ease chipsRight 0.3s 1;
+            animation: ease chipsRight 0.3s 1;
+        }
+    }
+    &[data-total-players="6"] {
+        .blind-number {
+            -webkit-animation: ease chipsLeft 0.3s 1;
+            animation: ease chipsLeft 0.3s 1;
+        }
+        .total-chips-value {
+            -webkit-animation: ease chipsLeft 0.3s 1;
+            animation: ease chipsLeft 0.3s 1;
+        }
+    }
+}
+
+[id^="area-5"] {
+    &[data-total-players="9"] {
+        .blind-number {
+            -webkit-animation: ease chipsDownLeft 0.3s 1;
+            animation: ease chipsDownLeft 0.3s 1;
+        }
+        .total-chips-value {
+            -webkit-animation: ease chipsDownLeft 0.3s 1;
+            animation: ease chipsDownLeft 0.3s 1;
+        }
+    }
+    &[data-total-players="8"] {
+        .blind-number {
+            -webkit-animation: ease chipsDownLeft 0.3s 1;
+            animation: ease chipsDownLeft 0.3s 1;
+        }
+        .total-chips-value {
+            -webkit-animation: ease chipsDownLeft 0.3s 1;
+            animation: ease chipsDownLeft 0.3s 1;
+        }
+    }
+    &[data-total-players="7"] {
+        .blind-number {
+            -webkit-animation: ease chipsDownLeft 0.3s 1;
+            animation: ease chipsDownLeft 0.3s 1;
+        }
+        .total-chips-value {
+            -webkit-animation: ease chipsDownLeft 0.3s 1;
+            animation: ease chipsDownLeft 0.3s 1;
+        }
+    }
+    &[data-total-players="6"] {
+        .blind-number {
+            -webkit-animation: ease chipsRight 0.3s 1;
+            animation: ease chipsRight 0.3s 1;
+        }
+        .total-chips-value {
+            -webkit-animation: ease chipsRight 0.3s 1;
+            animation: ease chipsRight 0.3s 1;
+        }
+    }
+    &[data-total-players="5"] {
+        .blind-number {
+            -webkit-animation: ease chipsLeft 0.3s 1;
+            animation: ease chipsLeft 0.3s 1;
+        }
+        .total-chips-value {
+            -webkit-animation: ease chipsLeft 0.3s 1;
+            animation: ease chipsLeft 0.3s 1;
+        }
+    }
+}
+
+[id^="area-4"] {
+    &[data-total-players="9"] {
+        .blind-number {
+            -webkit-animation: ease chipsDown 0.3s 1;
+            animation: ease chipsDown 0.3s 1;
+        }
+        .total-chips-value {
+            -webkit-animation: ease chipsDown 0.3s 1;
+            animation: ease chipsDown 0.3s 1;
+        }
+    }
+    &[data-total-players="8"] {
+        .blind-number {
+            -webkit-animation: ease chipsDown 0.3s 1;
+            animation: ease chipsDown 0.3s 1;
+        }
+        .total-chips-value {
+            -webkit-animation: ease chipsDown 0.3s 1;
+            animation: ease chipsDown 0.3s 1;
+        }
+    }
+    &[data-total-players="7"] {
+        .blind-number {
+            -webkit-animation: ease chipsDown 0.3s 1;
+            animation: ease chipsDown 0.3s 1;
+        }
+        .total-chips-value {
+            -webkit-animation: ease chipsDown 0.3s 1;
+            animation: ease chipsDown 0.3s 1;
+        }
+    }
+    &[data-total-players="6"] {
+        .blind-number {
+            -webkit-animation: ease chipsLeft 0.3s 1;
+            animation: ease chipsLeft 0.3s 1;
+        }
+        .total-chips-value {
+            -webkit-animation: ease chipsLeft 0.3s 1;
+            animation: ease chipsLeft 0.3s 1;
+        }
+    }
+    &[data-total-players="5"] {
+        .blind-number {
+            -webkit-animation: ease chipsRight 0.3s 1;
+            animation: ease chipsRight 0.3s 1;
+        }
+        .total-chips-value {
+            -webkit-animation: ease chipsRight 0.3s 1;
+            animation: ease chipsRight 0.3s 1;
+        }
+    }
+    &[data-total-players="4"] {
+        .blind-number {
+            -webkit-animation: ease chipsLeft 0.3s 1;
+            animation: ease chipsLeft 0.3s 1;
+        }
+        .total-chips-value {
+            -webkit-animation: ease chipsLeft 0.3s 1;
+            animation: ease chipsLeft 0.3s 1;
+        }
+    }
+}
+
+[id^="area-3"] {
+    &[data-total-players="9"] {
+        .blind-number {
+            -webkit-animation: ease chipsDown 0.3s 1;
+            animation: ease chipsDown 0.3s 1;
+            &.calls-fade-reverse {
+                -webkit-animation: reverse chipsDown-reverse 0.3s 1;
+                animation: reverse chipsDown-reverse 0.3s 1;
+            }
+        }
+        .total-chips-value {
+            -webkit-animation: ease chipsDown 0.3s 1;
+            animation: ease chipsDown 0.3s 1;
+            &.calls-fade-reverse {
+                -webkit-animation: reverse chipsDown-reverse 0.3s 1;
+                animation: reverse chipsDown-reverse 0.3s 1;
+            }
+        }
+    }
+    &[data-total-players="8"] {
+        .blind-number {
+            -webkit-animation: ease chipsDown 0.3s 1;
+            animation: ease chipsDown 0.3s 1;
+            &.calls-fade-reverse {
+                -webkit-animation: reverse chipsDown-reverse 0.3s 1;
+                animation: reverse chipsDown-reverse 0.3s 1;
+            }
+        }
+        .total-chips-value {
+            -webkit-animation: ease chipsDown 0.3s 1;
+            animation: ease chipsDown 0.3s 1;
+            &.calls-fade-reverse {
+                -webkit-animation: reverse chipsDown-reverse 0.3s 1;
+                animation: reverse chipsDown-reverse 0.3s 1;
+            }
+        }
+    }
+    &[data-total-players="7"] {
+        .blind-number {
+            -webkit-animation: ease chipsDown 0.3s 1;
+            animation: ease chipsDown 0.3s 1;
+            &.calls-fade-reverse {
+                -webkit-animation: reverse chipsDown-reverse 0.3s 1;
+                animation: reverse chipsDown-reverse 0.3s 1;
+            }
+        }
+        .total-chips-value {
+            -webkit-animation: ease chipsDown 0.3s 1;
+            animation: ease chipsDown 0.3s 1;
+            &.calls-fade-reverse {
+                -webkit-animation: reverse chipsDown-reverse 0.3s 1;
+                animation: reverse chipsDown-reverse 0.3s 1;
+            }
+        }
+    }
+    &[data-total-players="6"] {
+        .blind-number {
+            -webkit-animation: ease chipsDown 0.3s 1;
+            animation: ease chipsDown 0.3s 1;
+            &.calls-fade-reverse {
+                -webkit-animation: reverse chipsDown-reverse 0.3s 1;
+                animation: reverse chipsDown-reverse 0.3s 1;
+            }
+        }
+        .total-chips-value {
+            -webkit-animation: ease chipsDown 0.3s 1;
+            animation: ease chipsDown 0.3s 1;
+            &.calls-fade-reverse {
+                -webkit-animation: reverse chipsDown-reverse 0.3s 1;
+                animation: reverse chipsDown-reverse 0.3s 1;
+            }
+        }
+    }
+    &[data-total-players="5"] {
+        .blind-number {
+            -webkit-animation: ease chipsDownLeft 0.3s 1;
+            animation: ease chipsDownLeft 0.3s 1;
+            &.calls-fade-reverse {
+                -webkit-animation: reverse chipsDownLeft-reverse 0.3s 1;
+                animation: reverse chipsDownLeft-reverse 0.3s 1;
+            }
+        }
+        .total-chips-value {
+            -webkit-animation: ease chipsDownLeft 0.3s 1;
+            animation: ease chipsDownLeft 0.3s 1;
+            &.calls-fade-reverse {
+                -webkit-animation: reverse chipsDownLeft-reverse 0.3s 1;
+                animation: reverse chipsDownLeft-reverse 0.3s 1;
+            }
+        }
+    }
+    &[data-total-players="4"] {
+        .blind-number {
+            -webkit-animation: ease chipsDown 0.3s 1;
+            animation: ease chipsDown 0.3s 1;
+            &.calls-fade-reverse {
+                -webkit-animation: reverse chipsDown-reverse 0.3s 1;
+                animation: reverse chipsDown-reverse 0.3s 1;
+            }
+        }
+        .total-chips-value {
+            -webkit-animation: ease chipsDown 0.3s 1;
+            animation: ease chipsDown 0.3s 1;
+            &.calls-fade-reverse {
+                -webkit-animation: reverse chipsDown-reverse 0.3s 1;
+                animation: reverse chipsDown-reverse 0.3s 1;
+            }
+        }
+    }
+    &[data-total-players="3"] {
+        .blind-number {
+            -webkit-animation: ease chipsDownLeft 0.3s 1;
+            animation: ease chipsDownLeft 0.3s 1;
+            &.calls-fade-reverse {
+                -webkit-animation: reverse chipsDownLeft-reverse 0.3s 1;
+                animation: reverse chipsDownLeft-reverse 0.3s 1;
+            }
+        }
+        .total-chips-value {
+            -webkit-animation: ease chipsDownLeft 0.3s 1;
+            animation: ease chipsDownLeft 0.3s 1;
+            &.calls-fade-reverse {
+                -webkit-animation: reverse chipsDownLeft-reverse 0.3s 1;
+                animation: reverse chipsDownLeft-reverse 0.3s 1;
+            }
+        }
+    }
+}
+
+[id^="area-2"] {
+    &[data-total-players="9"] {
+        .blind-number {
+            -webkit-animation: ease chipsDownRight 0.3s 1;
+            animation: ease chipsDownRight 0.3s 1;
+        }
+        .total-chips-value {
+            -webkit-animation: ease chipsDownRight 0.3s 1;
+            animation: ease chipsDownRight 0.3s 1;
+        }
+    }
+    &[data-total-players="8"] {
+        .blind-number {
+            -webkit-animation: ease chipsDownRight 0.3s 1;
+            animation: ease chipsDownRight 0.3s 1;
+        }
+        .total-chips-value {
+            -webkit-animation: ease chipsDownRight 0.3s 1;
+            animation: ease chipsDownRight 0.3s 1;
+        }
+    }
+    &[data-total-players="7"] {
+        .blind-number {
+            -webkit-animation: ease chipsDownRight 0.3s 1;
+            animation: ease chipsDownRight 0.3s 1;
+        }
+        .total-chips-value {
+            -webkit-animation: ease chipsDownRight 0.3s 1;
+            animation: ease chipsDownRight 0.3s 1;
+        }
+    }
+    &[data-total-players="6"] {
+        .blind-number {
+            -webkit-animation: ease chipsDownRight 0.3s 1;
+            animation: ease chipsDownRight 0.3s 1;
+        }
+        .total-chips-value {
+            -webkit-animation: ease chipsDownRight 0.3s 1;
+            animation: ease chipsDownRight 0.3s 1;
+        }
+    }
+    &[data-total-players="5"] {
+        .blind-number {
+            -webkit-animation: ease chipsDownRight 0.3s 1;
+            animation: ease chipsDownRight 0.3s 1;
+        }
+        .total-chips-value {
+            -webkit-animation: ease chipsDownRight 0.3s 1;
+            animation: ease chipsDownRight 0.3s 1;
+        }
+    }
+    &[data-total-players="4"] {
+        .blind-number {
+            -webkit-animation: ease chipsRight 0.3s 1;
+            animation: ease chipsRight 0.3s 1;
+        }
+        .total-chips-value {
+            -webkit-animation: ease chipsRight 0.3s 1;
+            animation: ease chipsRight 0.3s 1;
+        }
+    }
+    &[data-total-players="3"] {
+        .blind-number {
+            -webkit-animation: ease chipsDownRight 0.3s 1;
+            animation: ease chipsDownRight 0.3s 1;
+        }
+        .total-chips-value {
+            -webkit-animation: ease chipsDownRight 0.3s 1;
+            animation: ease chipsDownRight 0.3s 1;
+        }
+    }
+    &[data-total-players="2"] {
+        .blind-number {
+            -webkit-animation: ease chipsDownRight 0.3s 1;
+            animation: ease chipsDownRight 0.3s 1;
+        }
+        .total-chips-value {
+            -webkit-animation: ease chipsDownRight 0.3s 1;
+            animation: ease chipsDownRight 0.3s 1;
+        }
+    }
+}
+
+[id^="area-1"] {
+    .blind-number {
+        -webkit-animation: ease chipsUp 0.3s 1;
+        animation: ease chipsUp 0.3s 1;
+        &.calls-fade-reverse {
+            -webkit-animation: reverse chipsUp-reverse 0.3s 1;
+            animation: reverse chipsUp-reverse 0.3s 1;
+        }
+    }
+    .total-chips-value {
+        -webkit-animation: ease chipsUp 0.3s 1;
+        animation: ease chipsUp 0.3s 1;
+    }
+}
+
+//HOLE CARDS
+
+.player-hand {
+    padding-top: 80px;
+    padding-left: 5px;
+    //-webkit-backface-visibility: hidden;
+    //backface-visibility: hidden;
+    //-webkit-transform-style: preserve-3d;
+    //-moz-transform-style: preserve-3d;
+    //-ms-transform-style: preserve-3d;
+    //-o-transform-style: preserve-3d;
+    //transform-style: preserve-3d;
+    //background-repeat: no-repeat;
+    //image-rendering: pixelated;
+    transition: ease 0.5s all;
+    //opacity: 0;
+    .card {
+        //opacity: 0;
+        margin: auto;
+    }
+    &:not(.hole-card) {
+        top: -210px !important;
+        left: -0px !important;
+        padding: 0 !important;
+        right: 75% !important;
+        transform: perspective(1420px) scale(0.93) rotateX(-60deg) rotateZ(-180deg) rotateY(0deg);
+        // transform: perspective(600px) scale(1) rotate(180deg);
+        //transform: perspective(600px) scale(1) rotateX(-100deg) rotateZ(-30deg) rotateY(-4deg) rotate(90deg);
+        // transform: rotateY(180deg);
+        opacity: 0!important;
+        //transform: perspective(1420px) scale(0.93, 0.93) rotateX(240deg) rotatez(37deg) rotateY(90deg);
+    }
+    &.hole-card {
+        transition: ease 0.8s all;
+        transform: perspective(1420px) scale(1) rotateX(0deg) rotateZ(0deg) rotateY(0deg);
+        // -webkit-animation: alternate holeCards 0.3s infinite; //infinite
+        //animation: alternate holeCards 0.3s infinite; //infinite
+        opacity: 1;
+        //transform: perspective(1420px) scale(1) rotateX(0deg) rotateZ(0deg) rotateY(0deg);
+        //transform: perspective(600px) scale(1, 1) rotate(0deg);
+        &.hole-card-reverse {
+            top: -210px !important;
+            left: -400px !important;
+            padding: 0 !important;
+            right: 75% !important;
+            transform: perspective(1420px) scale(0.93) rotateX(-60deg) rotateZ(-180deg) rotateY(0deg);
+            opacity: 0;
+            //transform: perspective(1420px) scale(1) rotateX(0deg) rotateZ(0deg) rotateY(0deg);
+            //transform: perspective(600px) scale(1, 1) rotate(0deg);
+        }
+    }
+}
+
+//HOLE CARDS END
+
+//PLAYER ACTION CALLS/FOLD/CHECKS
+.player-action {
+    &.action-show {
+        -webkit-animation: ease player-action 0.3s 1; //infinite
+        animation: ease player-action 0.3s 1; //infinite
+        opacity: 1;
+        &.action-show-reverse {
+            -webkit-animation: reverse player-action-reverse 0.3s 1; //infinite
+            animation: reverse player-action-reverse 0.3s 1; //infinite
+            opacity: 0;
+        }
+    }
+}
+//PLAYER ACTION CALLS/FOLD/CHECKS END

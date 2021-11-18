@@ -1,0 +1,312 @@
+//CARDS
+.card {
+    width: 62px;
+    height: 95px;
+    background-image: url(../img/cards/card.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    display: inline-block;
+    transition: all ease 0.5s;
+}
+.card-5h {
+    background-image: url(../img/cards/5h.svg);
+}
+.card-8d {
+    background-image: url(../img/cards/8d.svg);
+}
+.card-9c {
+    background-image: url(../img/cards/9c.svg);
+}
+.card-Ac {
+    background-image: url(../img/cards/Ac.svg);
+}
+.card-Ad {
+    background-image: url(../img/cards/Ad.svg);
+}
+.card-Kc {
+    background-image: url(../img/cards/Kc.svg);
+}
+.card-Kh {
+    background-image: url(../img/cards/Kh.svg);
+}
+
+//Clubs
+.card-2c {
+    background-image: url(../img/cards/Clubs/2c.svg);
+}
+.card-3c {
+    background-image: url(../img/cards/Clubs/3c.svg);
+}
+.card-4c {
+    background-image: url(../img/cards/Clubs/4c.svg);
+}
+.card-5c {
+    background-image: url(../img/cards/Clubs/5c.svg);
+}
+.card-6c {
+    background-image: url(../img/cards/Clubs/6c.svg);
+}
+.card-7c {
+    background-image: url(../img/cards/Clubs/7c.svg);
+}
+.card-8c {
+    background-image: url(../img/cards/Clubs/8c.svg);
+}
+.card-9c {
+    background-image: url(../img/cards/Clubs/9c.svg);
+}
+.card-10c {
+    background-image: url(../img/cards/Clubs/10c.svg);
+}
+.card-Jc {
+    background-image: url(../img/cards/Clubs/Jc.svg);
+}
+.card-Qc {
+    background-image: url(../img/cards/Clubs/Qc.svg);
+}
+.card-Kc {
+    background-image: url(../img/cards/Clubs/Kc.svg);
+}
+.card-Ac {
+    background-image: url(../img/cards/Clubs/Ac.svg);
+}
+
+//Diamonds
+.card-2d {
+    background-image: url(../img/cards/Diamonds/2d.svg);
+}
+.card-3d {
+    background-image: url(../img/cards/Diamonds/3d.svg);
+}
+.card-4d {
+    background-image: url(../img/cards/Diamonds/4d.svg);
+}
+.card-5d {
+    background-image: url(../img/cards/Diamonds/5d.svg);
+}
+.card-6d {
+    background-image: url(../img/cards/Diamonds/6d.svg);
+}
+.card-7d {
+    background-image: url(../img/cards/Diamonds/7d.svg);
+}
+.card-8d {
+    background-image: url(../img/cards/Diamonds/8d.svg);
+}
+.card-9d {
+    background-image: url(../img/cards/Diamonds/9d.svg);
+}
+.card-10d {
+    background-image: url(../img/cards/Diamonds/10d.svg);
+}
+.card-Jd {
+    background-image: url(../img/cards/Diamonds/Jd.svg);
+}
+.card-Qd {
+    background-image: url(../img/cards/Diamonds/Qd.svg);
+}
+.card-Kd {
+    background-image: url(../img/cards/Diamonds/Kd.svg);
+}
+.card-Ad {
+    background-image: url(../img/cards/Diamonds/Ad.svg);
+}
+
+//Hearts
+.card-2h {
+    background-image: url(../img/cards/Hearts/2h.svg);
+}
+.card-3h {
+    background-image: url(../img/cards/Hearts/3h.svg);
+}
+.card-4h {
+    background-image: url(../img/cards/Hearts/4h.svg);
+}
+.card-5h {
+    background-image: url(../img/cards/Hearts/5h.svg);
+}
+.card-6h {
+    background-image: url(../img/cards/Hearts/6h.svg);
+}
+.card-7h {
+    background-image: url(../img/cards/Hearts/7h.svg);
+}
+.card-8h {
+    background-image: url(../img/cards/Hearts/8h.svg);
+}
+.card-9h {
+    background-image: url(../img/cards/Hearts/9h.svg);
+}
+.card-10h {
+    background-image: url(../img/cards/Hearts/10h.svg);
+}
+.card-Jh {
+    background-image: url(../img/cards/Hearts/Jh.svg);
+}
+.card-Qh {
+    background-image: url(../img/cards/Hearts/Qh.svg);
+}
+.card-Kh {
+    background-image: url(../img/cards/Hearts/Kh.svg);
+}
+.card-Ah {
+    background-image: url(../img/cards/Hearts/Ah.svg);
+}
+
+//Spades
+.card-2s {
+    background-image: url(../img/cards/Spades/2s.svg);
+}
+.card-3s {
+    background-image: url(../img/cards/Spades/3s.svg);
+}
+.card-4s {
+    background-image: url(../img/cards/Spades/4s.svg);
+}
+.card-5s {
+    background-image: url(../img/cards/Spades/5s.svg);
+}
+.card-6s {
+    background-image: url(../img/cards/Spades/6s.svg);
+}
+.card-7s {
+    background-image: url(../img/cards/Spades/7s.svg);
+}
+.card-8s {
+    background-image: url(../img/cards/Spades/8s.svg);
+}
+.card-9s {
+    background-image: url(../img/cards/Spades/9s.svg);
+}
+.card-10s {
+    background-image: url(../img/cards/Spades/10s.svg);
+}
+.card-Js {
+    background-image: url(../img/cards/Spades/Js.svg);
+}
+.card-Qs {
+    background-image: url(../img/cards/Spades/Qs.svg);
+}
+.card-Ks {
+    background-image: url(../img/cards/Spades/Ks.svg);
+}
+.card-As {
+    background-image: url(../img/cards/Spades/As.svg);
+}
+
+.chips {
+    color: #6d7177;
+    font-size: 18px;
+    line-height: 1;
+    font-weight: bold;
+}
+
+.chip {
+    width: 29px;
+    height: 12px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    &:not(:first-child) {
+        margin-bottom: -7px;
+    }
+}
+
+.chip-dark {
+    background-image: url(../img/chips/chip-dark.svg);
+}
+.chip-blue {
+    background-image: url(../img/chips/chip-blue.svg);
+}
+.chip-yellow {
+    background-image: url(../img/chips/chip-yellow.svg);
+}
+.chip-red {
+    background-image: url(../img/chips/chip-red.svg);
+}
+.chip-pink {
+    background-image: url(../img/chips/chip-pink.svg);
+}
+
+.chip-pot {
+    background-image: url(../img/chips/chip-pot.svg);
+}
+
+.dealer-button {
+    &::after {
+        content: " ";
+        position: absolute;
+        background-image: url(../img/dealer.svg);
+        width: 35px;
+        height: 35px;
+        top: -4px;
+        right: -100px !important;
+    }
+}
+
+//POSITIONS
+.BTN {
+    &::before {
+        content: "BTN";
+        background-color: #952c2c;
+        @extend %position;
+    }
+}
+.SB {
+    &::before {
+        content: "SB";
+        background-color: #3b2c94;
+        @extend %position;
+    }
+}
+.BB {
+    &::before {
+        content: "BB";
+        background-color: #8b2c94;
+        @extend %position;
+    }
+}
+.UTG {
+    &::before {
+        content: "UTG";
+        background-color: #2c5d94;
+        @extend %position;
+    }
+}
+.UTG1 {
+    &::before {
+        content: "UTG1";
+        background-color: #2c5d94;
+        @extend %position;
+    }
+}
+.MP {
+    &::before {
+        content: "MP";
+        background-color: #2c947a;
+        @extend %position;
+    }
+}
+.MP1 {
+    &::before {
+        content: "MP1";
+        background-color: #257f25;
+        @extend %position;
+    }
+}
+.LP {
+    &::before {
+        content: "LP";
+        background-color: #2c932c;
+        @extend %position;
+    }
+}
+.CO {
+    &::before {
+        content: "CO";
+        background-color: #94642c;
+        @extend %position;
+    }
+}
+//POSITIONS END

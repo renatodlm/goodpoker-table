@@ -1,0 +1,195 @@
+{
+    "rounds": [
+        {
+            "action": "FOLDS",
+            "index": 0,
+            "player": "VainKazunama",
+            "step": "HOLE_CARDS"
+        },
+        {
+            "action": "CALLS",
+            "index": 1,
+            "player": "Fabio_Bap",
+            "step": "HOLE_CARDS",
+            "value": 0.02
+        },
+        {
+            "action": "RAISES",
+            "index": 2,
+            "player": "ChipMaster633",
+            "step": "HOLE_CARDS",
+            "value": 0.04
+        },
+        {
+            "action": "FOLDS",
+            "index": 3,
+            "player": "Edersong",
+            "step": "HOLE_CARDS"
+        },
+        {
+            "action": "FOLDS",
+            "index": 4,
+            "player": "WG8978",
+            "step": "HOLE_CARDS"
+        },
+        {
+            "action": "RAISES",
+            "index": 5,
+            "player": "CasObserver",
+            "step": "HOLE_CARDS",
+            "value": 0.08
+        },
+        {
+            "action": "FOLDS",
+            "index": 6,
+            "player": "Artishell",
+            "step": "HOLE_CARDS"
+        },
+        {
+            "action": "FOLDS",
+            "index": 7,
+            "player": "dias&pacheco",
+            "step": "HOLE_CARDS"
+        },
+        {
+            "action": "CALLS",
+            "index": 8,
+            "player": "jamiej36830",
+            "step": "HOLE_CARDS",
+            "value": 0.06
+        },
+        {
+            "action": "FOLDS",
+            "index": 9,
+            "player": "Fabio_Bap",
+            "step": "HOLE_CARDS"
+        },
+        {
+            "action": "CALLS",
+            "index": 10,
+            "player": "ChipMaster633",
+            "step": "HOLE_CARDS",
+            "value": 0.04
+        },
+        {
+            "action": "FLOP",
+            "cards": [
+                "4h",
+                "Js",
+                "Qd"
+            ],
+            "index": 11,
+            "step": "FLOP"
+        },
+        {
+            "action": "CHECKS",
+            "index": 12,
+            "player": "jamiej36830",
+            "step": "FLOP"
+        },
+        {
+            "action": "CHECKS",
+            "index": 13,
+            "player": "ChipMaster633",
+            "step": "FLOP"
+        },
+        {
+            "action": "BETS",
+            "index": 14,
+            "player": "CasObserver",
+            "step": "FLOP",
+            "value": 0.16
+        },
+        {
+            "action": "FOLDS",
+            "index": 15,
+            "player": "jamiej36830",
+            "step": "FLOP"
+        },
+        {
+            "action": "CALLS",
+            "index": 16,
+            "player": "ChipMaster633",
+            "step": "FLOP",
+            "value": 0.16
+        },
+        {
+            "action": "TURN",
+            "cards": [
+                "5s"
+            ],
+            "index": 17,
+            "step": "TURN"
+        },
+        {
+            "action": "CHECKS",
+            "index": 18,
+            "player": "ChipMaster633",
+            "step": "TURN"
+        },
+        {
+            "action": "CHECKS",
+            "index": 19,
+            "player": "CasObserver",
+            "step": "TURN"
+        },
+        {
+            "action": "RIVER",
+            "cards": [
+                "Ad"
+            ],
+            "index": 20,
+            "step": "RIVER"
+        },
+        {
+            "action": "CHECKS",
+            "index": 21,
+            "player": "ChipMaster633",
+            "step": "RIVER"
+        },
+        {
+            "action": "BETS",
+            "fgAllIn": true,
+            "index": 22,
+            "player": "CasObserver",
+            "step": "RIVER",
+            "value": 0.31
+        },
+        {
+            "action": "CALLS",
+            "index": 23,
+            "player": "ChipMaster633",
+            "step": "RIVER",
+            "value": 0.31
+        },
+        {
+            "action": "SHOWS",
+            "cards": [
+                "Td",
+                "Ah"
+            ],
+            "desc": "a pair of Aces",
+            "index": 24,
+            "player": "CasObserver",
+            "step": "SHOW_DOWN"
+        },
+        {
+            "action": "SHOWS",
+            "cards": [
+                "As",
+                "Qh"
+            ],
+            "desc": "two pair, Aces and Queens",
+            "index": 25,
+            "player": "ChipMaster633",
+            "step": "SHOW_DOWN"
+        },
+        {
+            "action": "COLLECTED_FROM_POT",
+            "index": 26,
+            "player": "ChipMaster633",
+            "step": "SHOW_DOWN",
+            "value": 1.17
+        }
+    ]
+}
