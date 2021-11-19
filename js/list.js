@@ -329,7 +329,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
             content_positions += '<div id="cards-' + id + '" class="player-hand hh-player" style="right:' + pRight + ';left:' + pLeft + ';top:' + '50%' + ';margin-left:' + mLeft + ';margin-right:' + mRight + '"></div>';
 
             //area action
-            content_positions += '<div id="area-' + id + '" class="area-item hh-player" style="opacity:0;right:' + aRight + ';left:' + aLeft + ';top:' + aTop + ';margin-left:' + mLeft + ';margin-right:' + mRight + '" data-total-players="' + totalPlayers + '" data-step="HOLE_CARDS" data-left="' + aLeft + '" data-top="' + aTop + '"><div class="total-chips-value" data-value="0"></div></div>';
+            content_positions += '<div id="area-' + id + '" class="area-item hh-player" style="opacity:0;right:' + aRight + ';left:' + aLeft + ';top:' + aTop + ';margin-left:' + mLeft + ';margin-right:' + mRight + '" data-total-players="' + totalPlayers + '" data-step="HOLE_CARDS" data-start-left="' + aLeft + '" data-start-top="' + aTop + '"><div class="total-chips-value" data-value="0"></div></div>';
 
 
             content_positions += '<div id="pot-position">';

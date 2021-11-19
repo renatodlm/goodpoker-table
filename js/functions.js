@@ -64,7 +64,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
                         setTimeout(function () {
                             deleteBlind(indexRound, round.player, round.step);
                         }, 300);
-
+                        //document.getElementById("prev").click();
                         break;
                     case "RAISES":
                         blindCallBetRaise_reverse(indexRound, round.index, round.player, round.value, "RAISES", round.step);
@@ -90,6 +90,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
                                 player_action_reverse(item, "CHECKS");
                             }
                         }
+                        //document.getElementById("prev").click();
                         break;
                     case "BETS":
                         blindCallBetRaise_reverse(indexRound, round.index, round.player, round.value, "BETS", round.step);
@@ -123,22 +124,23 @@ document.addEventListener("DOMContentLoaded", function (event) {
                         folds_reverse(round.player);
                         break;
                     case "COLLECTED_FROM_POT":
-
+                        var audio = new Audio('./sound/winReverse.wav');
+                        audio.play();
+                        pot_calculate_reverse('RIVER', round.step);
                         collected_pot_reverse(round.player, round.value);
-                        //foldsOthers(round.player);
+                        foldsOthers_reverse(round.player);
                         setTimeout(function () {
-                            pot_calculate_reverse('RIVER', round.step);
+                            //pot_calculate_reverse('RIVER', round.step);
                             document.getElementById('pot-position').style.opacity = '1';
                             document.getElementById('pot-position').style.marginTop = '-100px';
                         }, 500);
                         break;
                     case "DOENST_SHOW_HAND":
                         folds_reverse(round.player);
-                        //alert('DOENST_SHOW_HAND');
                         break;
                     case "SHOWS":
                         cards_shows_reverse(round.player, round.cards);
-
+                        //folds_reverse(round.player);
                         break;
                     default:
                 }
@@ -149,7 +151,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
             prev.disabled = true;
         }
 
-        console.log(indexRound);
+        //console.log(indexRound);
 
     }
 
@@ -257,7 +259,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
             prev.disabled = false;
         }
 
-        console.log(indexRound);
+        //console.log(indexRound);
     }
 
 
@@ -310,17 +312,40 @@ document.addEventListener("DOMContentLoaded", function (event) {
     function foldsOthers(namePlayer) {
 
         for (var i = 0; i < player_box.length; ++i) {
-            if (player_box[i].getAttribute('data-player') != namePlayer) {
+            if (player_box[i].getAttribute('data-player') != namePlayer && player_box[i].style.opacity != '0.2') {
                 var item = player_box[i];
+                item.setAttribute('folds-other', 'FOLD_COLLECTED');
                 item.style.opacity = '0.2'
                 player_action(item, 'FOLDS');
             }
         }
 
         for (var i = 0; i < player_hand.length; ++i) {
-            if (player_hand[i].getAttribute('data-player') != namePlayer) {
+            if (player_hand[i].getAttribute('data-player') != namePlayer && player_hand[i].style.opacity != '0.05') {
                 var item = player_hand[i];
+                item.setAttribute('folds-other', 'FOLD_COLLECTED');
                 item.style.opacity = '0.05'
+            }
+        }
+
+    }
+
+    function foldsOthers_reverse(namePlayer) {
+
+        for (var i = 0; i < player_box.length; ++i) {
+            if (player_box[i].getAttribute('data-player') != namePlayer && player_box[i].getAttribute('folds-other') === 'FOLD_COLLECTED') {
+                var item = player_box[i];
+                item.setAttribute('folds-other', 'FOLD_COLLECTED_REMOVED');
+                item.style.opacity = '1'
+                //player_action(item, 'FOLDS');
+            }
+        }
+
+        for (var i = 0; i < player_hand.length; ++i) {
+            if (player_hand[i].getAttribute('data-player') != namePlayer && player_hand[i].getAttribute('folds-other') === 'FOLD_COLLECTED') {
+                var item = player_hand[i];
+                item.setAttribute('folds-other', 'FOLD_COLLECTED_REMOVED');
+                item.style.opacity = '1'
             }
         }
 
@@ -706,8 +731,15 @@ document.addEventListener("DOMContentLoaded", function (event) {
             var item = area_item[i];
 
             if (typeof (item.querySelectorAll('.total-chips-value')[0]) != 'undefined' && item.querySelectorAll('.total-chips-value')[0] != null && item.querySelectorAll('.total-chips-value')[0] != 0 && item.getAttribute('data-step') == oldStep) {
+
+
+                newId = item.getAttribute('id') + '-clone-' + item.getAttribute('data-player');
+                if (document.getElementById(newId)) {
+                    document.getElementById(newId).remove();
+                }
+
                 clone = item.cloneNode(true);
-                newId = clone.getAttribute('id') + '-clone-' + clone.getAttribute('data-player');
+
                 // Change the id attribute of the newly created element:
                 clone.setAttribute('id', newId);
                 clone.setAttribute('data-step', newStep);
@@ -734,37 +766,43 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     function pot_calculate_reverse(oldStep, newStep) {
 
+        //alert('OLD:' + oldStep + ' NEW:' + newStep)
+
         var audio = new Audio('./sound/pot_calc.wav');
         audio.play();
 
-        let total_val = 0;
+        var area_item = document.getElementsByClassName('area-item');
+
+        var total_val = 0;
         var current_player_val = 0;
         var current_total = 0;
+
 
         for (var i = 0; i < area_item.length; ++i) {
 
             var item = area_item[i];
 
-            if (typeof (item.querySelectorAll('.total-chips-value')[0]) != 'undefined' && item.querySelectorAll('.total-chips-value')[0] != null && item.querySelectorAll('.total-chips-value')[0] != 0) {
-                if (item.getAttribute('data-step') == oldStep) {
-                    //console.log(clone);
-                    current_player_val = item.querySelectorAll('.total-chips-value')[0].getAttribute('data-value');
-                    total_val = parseFloat(total_val) + parseFloat(current_player_val);
+            if (typeof (item.querySelectorAll('.total-chips-value')[0]) != 'undefined' && item.querySelectorAll('.total-chips-value')[0] != null && item.querySelectorAll('.total-chips-value')[0] != 0 && item.getAttribute('data-step') === oldStep) {
+                //console.log(clone);
+                current_player_val = item.querySelectorAll('.total-chips-value')[0].getAttribute('data-value');
+                total_val = total_val + parseFloat(current_player_val);
 
-                    item.style.top = item.getAttribute('data-start-top');
-                    item.style.left = item.getAttribute('data-start-left');
-                    item.style.marginLeft = item.getAttribute('data-start-mleft');
-                    item.style.marginRight = item.getAttribute('data-start-mright');
-                    item.style.opacity = '1';
-                }
+                item.style.top = item.getAttribute('data-start-top');
+                item.style.left = item.getAttribute('data-start-left');
+                item.style.marginLeft = item.getAttribute('data-start-mleft');
+                item.style.marginRight = item.getAttribute('data-start-mright');
+                item.style.opacity = '1';
             }
         }
 
         current_total = document.getElementById('pot-totals').getAttribute('data-total');
-        total_val = parseFloat(total_val) - parseFloat(current_total);
+        console.log('Total Atual:' + current_total);
+        total_val = parseFloat(current_total) - parseFloat(total_val);
+
+        //console.log('Total:' + total_val);
+
         document.getElementById('pot-totals').innerHTML = total_val.toPrecision(3);
         document.getElementById('pot-totals').setAttribute('data-total', total_val.toPrecision(3));
-
 
         //document.getElementById('pot-position').removeAttribute("style");
     }
