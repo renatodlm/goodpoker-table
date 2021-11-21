@@ -11,40 +11,94 @@ document.addEventListener("DOMContentLoaded", function (event) {
     /*== ACTION TABLE end ==*/
 
     var play = document.getElementById("play");
+    var play2 = document.getElementById("play2");
+    var pause = document.getElementById("pause");
     var next = document.getElementById("next");
     var prev = document.getElementById("prev");
     var allRounds = [], round = [];
+
+    /**
+     * Controller play and Pause
+     * var controller
+     */
+
+    var controller = true;
+    var controller_current_index = 0;
 
     fetch("poker.json")
         .then(function (response) {
             return response.json();
         }).then(function (json) {
-            //console.log(json);
-
             allRounds = json;
-            //console.log(allRounds[currentArray].rounds);
-
         });
 
-    play.onclick = function (e) {
-        var rounds = allRounds[currentArray].rounds;
-        //play.classList.add('pause');
-        play.setAttribute('id', 'pause');
-        for (let i = 0; i < rounds.length + 1; ++i) {
-            setTimeout(function timer() {
-                document.getElementById("next").click();
-            }, i * 1000);
-        }
 
+    var stats = 0;
+
+    function waitforme(ms) {
+        return new Promise(resolve => {
+            setTimeout(() => { resolve('') }, ms);
+        })
+    }
+
+    var playStart = 0;
+    play.onclick = function (e) {
+        if (playStart == 0) {
+            go();
+            playStart = 1;
+        }
+        play.style.display = 'none';
+        pause.style.display = 'unset';
+    }
+
+    function pauser() {
+        return new Promise(resolve => {
+            let playbuttonclick = function () {
+                pause.removeAttribute("disabled")
+                play.setAttribute("disabled", "true")
+                play.removeEventListener("click", playbuttonclick);
+                stats = 0;
+                resolve("resolved");
+            }
+            play.addEventListener("click", playbuttonclick)
+        })
+    }
+
+    pause.addEventListener("click", function () {
+        stats = 1;
+        play.style.display = 'unset';
+        pause.style.display = 'none';
+        pause.setAttribute("disabled", "true")
+        play.removeAttribute("disabled")
+    })
+
+    var r = -1;
+    //let second;
+    async function go() {
+
+        var rounds = allRounds[currentArray].rounds;
+
+        for (r; r < rounds.length + 1; ++r) {
+            console.log(r);
+
+            actionReplayer(allRounds[currentArray], r);
+            //document.getElementById("next").click();
+            await waitforme(800);
+            if (stats == 1) await pauser();
+        }
     }
 
     prev.disabled = true;
     /*ACTION TEST*/
     next.onclick = function (e) {
+        r++;
+        console.log(r);
         actionReplayer(allRounds[currentArray]);
     }
 
     prev.onclick = function (e) {
+        r--;
+        console.log(r);
         indexRound--;
 
         if (indexRound >= -1) {
@@ -156,8 +210,10 @@ document.addEventListener("DOMContentLoaded", function (event) {
     }
 
 
-    function actionReplayer(RoundArray) {
-
+    function actionReplayer(RoundArray, Actionindex = null) {
+        if (Actionindex != null) {
+            indexRound = Actionindex;
+        }
         if (indexRound < RoundArray.rounds.length) {
 
             round = RoundArray.rounds[indexRound];
@@ -249,7 +305,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
             }
 
             setTimeout(function () {
-                indexRound++;
+                if (Actionindex == null) { indexRound++; }
                 prev.disabled = false;
 
             }, 5);
