@@ -4,15 +4,34 @@ body {
     padding: 0;
     font-family: "Montserrat", sans-serif;
     background-color: $color_gray_light;
+    overflow: hidden;
 }
 .room {
-    background-color: $color_gray_light;
     height: 938px;
     display: flex;
     position: relative;
-    overflow: hidden;
-    transform: scale(0.9);
-    margin-top: -50px;
+    transform: scale(0.8);
+    margin-top: -80px;
+    @media (max-width: 1850px) {
+        transform: scale(0.78);
+        margin-top: -100px;
+    }
+    @media (max-width: 1800px) {
+        transform: scale(0.75);
+        margin-top: -150px;
+    }
+    @media (max-width: 1700px) {
+        transform: scale(0.73);
+        margin-top: -150px;
+    }
+    @media (max-width: 1600px) {
+        transform: scale(0.7);
+        margin-top: -150px;
+    }
+    @media (max-width: 1500px) {
+        transform: scale(0.6);
+        margin-top: -150px;
+    }
     .table {
         margin: auto;
         width: 100%;
@@ -510,13 +529,87 @@ body {
     border-top: 3px solid #56915d;
     position: fixed;
     display: flex;
-    align-items: center;
-    justify-content: center;
+
     bottom: 0;
     left: 0;
     right: 0;
     z-index: 99;
     min-height: 100px;
+    &-container {
+        margin-left: auto;
+        margin-right: auto;
+        display: flex;
+        width: 100%;
+        max-width: 1140px;
+        position: relative;
+        justify-content: center;
+        &-infos {
+            position: absolute;
+            left: 0;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            height: 100%;
+            #control-name {
+                color: #6d7177;
+                font-weight: 600;
+                font-size: 16px;
+                line-height: 19.2px;
+                margin: 0 0 2px 0;
+            }
+            #control-timer {
+                color: #999999;
+                font-size: 14px;
+                line-height: 16.8px;
+                margin: 0;
+            }
+        }
+        &-buttons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            &-gravando {
+                position: absolute;
+                right: 0;
+                margin-right: calc(-172px - 15px);
+                border-radius: 20px;
+                top: calc(50% - 20px);
+                min-height: 40px;
+                background-color: #cccccc;
+                border: none;
+                font-size: 18px;
+                font-weight: bold;
+                line-height: 1;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding-left: 40px;
+                padding-right: 15px;
+                color: #6d7177;
+                background-image: url(../img/gravando.svg);
+                background-size: 14px;
+                background-position: 16px 13px;
+                background-repeat: no-repeat;
+                cursor: pointer;
+                &:hover {
+                    background-color: rgba(#cccccc, 0.8);
+                }
+            }
+        }
+        &-timer {
+            position: absolute;
+            right: 0;
+            font-size: 14px;
+            line-height: 16.8px;
+            font-weight: 500;
+            color: #999999;
+            strong {
+                font-weight: bold;
+                color: #6d7177;
+            }
+        }
+    }
     .button-collun {
         width: 100px;
         text-align: center;
@@ -583,6 +676,9 @@ body {
             width: 65px;
             height: 65px;
         }
+        &:disabled {
+            filter: grayscale(1);
+        }
     }
     #pause {
         width: 70px;
@@ -601,5 +697,121 @@ body {
             width: 65px;
             height: 65px;
         }
+    }
+}
+
+.goodpoker-controllers {
+    background-color: $color_gray_light;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    &-container {
+        margin-top: 50px;
+        margin-bottom: calc(60px + 140px);
+        position: relative;
+        width: 100%;
+        height: 100%;
+        max-width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+        @media (max-width: 1500px) {
+            max-width: 95%;
+        }
+        @media (max-width: 1400px) {
+            max-width: 98%;
+        }
+    }
+    #gp-estudo {
+        position: absolute;
+        top: 0;
+        #gp-estudo-nome {
+            color: #171d18;
+            font-size: 22px;
+            line-height: 26.4px;
+            margin-bottom: 7px;
+        }
+    }
+    #gp-players-count {
+        font-size: 16px;
+        line-height: 19.2px;
+        font-weight: 500;
+        color: #999999;
+    }
+    #gp-revisoes {
+        font-size: 16px;
+        line-height: 19.2px;
+        font-weight: 500;
+        color: #999999;
+    }
+    #gp-tutorial {
+        background-color: transparent;
+        border: 1px solid #56915d;
+        border-radius: 26px;
+        height: 50px;
+        padding-left: 50px;
+        padding-right: 15px;
+        background-image: url(../img/tutorial.svg);
+        background-size: 13px auto;
+        background-position: 22.5px 50%;
+        background-repeat: no-repeat;
+        width: fit-content;
+        position: absolute;
+        right: 0;
+        color: #56915d;
+        display: flex;
+        align-items: center;
+        font-size: 18px;
+        font-weight: 600;
+        line-height: 1;
+        top: 0;
+    }
+    #gp-sair {
+        background-color: transparent;
+        border: 1px solid #6d7177;
+        border-radius: 26px;
+        height: 50px;
+        padding-left: 50px;
+        padding-right: 26px;
+        background-image: url(../img/sair.svg);
+        background-size: 12px auto;
+        background-position: 22.5px 50%;
+        background-repeat: no-repeat;
+        width: fit-content;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        color: #6d7177;
+        display: flex;
+        align-items: center;
+        font-size: 18px;
+        font-weight: 600;
+        line-height: 1;
+    }
+    #gp-encerrar {
+        background-color: #e84407;
+        border-radius: 26px;
+        height: 50px;
+        padding-left: 50px;
+        padding-right: 26px;
+        background-image: url(../img/encerrar.svg);
+        background-size: 18px auto;
+        background-position: 22.5px 50%;
+        background-repeat: no-repeat;
+        width: fit-content;
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        color: #ffffff;
+        display: flex;
+        align-items: center;
+        font-size: 18px;
+        font-weight: 600;
+        line-height: 1;
     }
 }

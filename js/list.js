@@ -34,6 +34,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
             let aBottom = '0';
 
             totalPlayers = json[currentIndex].players.length;
+            document.getElementById('gp-players-total-count').innerHTML = totalPlayers;
             //console.log(totalPlayers);
 
 

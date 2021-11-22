@@ -1,20 +1,34 @@
 "use strict";
 
 document.addEventListener("DOMContentLoaded", function (event) {
+    //Player box
     var player_box = document.getElementsByClassName('player-box');
+    //Mão do player
     var player_hand = document.getElementsByClassName('player-hand');
+    //Area de ações do player
     var area_item = document.getElementsByClassName('area-item');
+    //Usado para numerar os blinds
     var blind_number = document.getElementsByClassName('blind-number');
+
+    //Round Index Init - Usado geralmente quando não se passa um parametro Round Control na função
     var indexRound = -1;
+
+    //Round Control - Usado como parametro Round Controll em Play, Pause, Previous e Next
+    var rControl = -1;
+
+    //Array do replay
     var currentArray = 1;
 
     /*== ACTION TABLE end ==*/
 
-    var play = document.getElementById("play");
-    var play2 = document.getElementById("play2");
-    var pause = document.getElementById("pause");
-    var next = document.getElementById("next");
-    var prev = document.getElementById("prev");
+    var play = document.getElementById("play"); // Botão play
+    var pause = document.getElementById("pause"); // Botão pause
+    var next = document.getElementById("next"); // Botão next
+    var prev = document.getElementById("prev"); // Botão prev
+
+    var stats = 0;
+
+    //Array Rounds init val
     var allRounds = [], round = [];
 
     /**
@@ -22,33 +36,22 @@ document.addEventListener("DOMContentLoaded", function (event) {
      * var controller
      */
 
-    var controller = true;
-    var controller_current_index = 0;
+    //Revisao init val
+    document.getElementById('revisao-atual').innerHTML = 0;
 
     fetch("poker.json")
         .then(function (response) {
             return response.json();
         }).then(function (json) {
             allRounds = json;
+            document.getElementById('todas-revisoes').innerHTML = allRounds[currentArray].rounds.length + 1;
         });
 
-
-    var stats = 0;
 
     function waitforme(ms) {
         return new Promise(resolve => {
             setTimeout(() => { resolve('') }, ms);
         })
-    }
-
-    var playStart = 0;
-    play.onclick = function (e) {
-        if (playStart == 0) {
-            go();
-            playStart = 1;
-        }
-        play.style.display = 'none';
-        pause.style.display = 'unset';
     }
 
     function pauser() {
@@ -69,253 +72,308 @@ document.addEventListener("DOMContentLoaded", function (event) {
         play.style.display = 'unset';
         pause.style.display = 'none';
         pause.setAttribute("disabled", "true")
-        play.removeAttribute("disabled")
+        play.disabled = false;
+        //play.removeAttribute("disabled")
     })
 
-    var r = -1;
+
     //let second;
     async function go() {
 
         var rounds = allRounds[currentArray].rounds;
 
-        for (r; r < rounds.length + 1; ++r) {
-            console.log(r);
-
-            actionReplayer(allRounds[currentArray], r);
-            //document.getElementById("next").click();
-            await waitforme(800);
+        for (rControl; rControl < rounds.length; rControl++) {
+            //actionNext(allRounds[currentArray]);
+            next.click();
+            await waitforme(500);
             if (stats == 1) await pauser();
         }
+
+        if (indexRound == rounds.length) {
+            play.disabled = true;
+            pause.disabled = true;
+            stats = 1;
+            play.style.display = 'unset';
+            pause.style.display = 'none';
+        }
+
+
+    }
+
+    function actionNext(RoundArray, Actionindex = null) {
+
+        if (Actionindex != null) {
+            indexRound = Actionindex;
+        }
+
+        if (indexRound == -1) {
+            hole_cards();
+        }
+
+        if (indexRound == RoundArray.rounds.length) {
+            next.disabled = true;
+        }
+
+        if (indexRound <= RoundArray.rounds.length && indexRound != -1) {
+            console.log('chegou aqui index é: ' + indexRound);
+            round = RoundArray.rounds[indexRound];
+
+            switch (round.action) {
+                case "FOLDS":
+                    folds(round.player);
+                    break;
+                case "CALLS":
+                    createBlind(indexRound, round.player, round.step);
+
+                    setTimeout(function () {
+                        blindCallBetRaise(indexRound, round.index, round.player, round.value, "CALLS", round.step);
+                    }, 1);
+
+                    break;
+                case "RAISES":
+                    createBlind(indexRound, round.player, round.step);
+                    setTimeout(function () {
+                        blindCallBetRaise(indexRound, round.index, round.player, round.value, "RAISES", round.step);
+                    }, 5);
+                    break;
+                case "FLOP":
+                    pot_calculate('HOLE_CARDS', round.step);
+                    flopTurnRiver(["1", "2", "3"], round.cards);
+                    var audio = new Audio('./sound/holeCards.wav');
+                    audio.play();
+                    break;
+                case "CHECKS":
+                    for (var i = 0; i < player_box.length; ++i) {
+                        if (player_box[i].getAttribute('data-player') == round.player) {
+                            var item = player_box[i];
+                            player_action(item, "CHECKS");
+                        }
+                    }
+                    break;
+                case "BETS":
+                    createBlind(indexRound, round.player, round.step);
+
+                    setTimeout(function () {
+                        blindCallBetRaise(indexRound, round.index, round.player, round.value, "BETS", round.step);
+                    }, 1);
+                    break;
+                case "TURN":
+                    pot_calculate('FLOP', round.step);
+                    flopTurnRiver(["4"], round.cards);
+                    var audio = new Audio('./sound/single_card.wav');
+                    audio.play();
+                    break;
+                case "RIVER":
+                    pot_calculate('TURN', round.step);
+                    flopTurnRiver(["5"], round.cards);
+                    var audio = new Audio('./sound/single_card.wav');
+                    audio.play();
+                    break;
+                case "UNCALLED_BET":
+                    blindCallBetRaise_reverse(indexRound, round.actionIndex, round.player, round.value, "BETS", round.step);
+                    break;
+                case "COLLECTED_FROM_POT":
+                    pot_calculate('RIVER', round.step);
+                    foldsOthers(round.player);
+                    setTimeout(function () {
+                        collected_pot(round.player, round.value);
+
+                        for (var i = 0; i < player_box.length; ++i) {
+                            if (player_box[i].getAttribute('data-player') == round.player) {
+                                var item = player_box[i];
+                                player_action(item, "WIN");
+                            }
+                        }
+                    }, 500);
+                    break;
+                case "DOENST_SHOW_HAND":
+                    for (var i = 0; i < player_box.length; ++i) {
+                        if (player_box[i].getAttribute('data-player') == round.player) {
+                            var item = player_box[i];
+                            player_action(item, "DOENST_SHOW_HAND");
+                        }
+                    }
+                    break;
+                case "SHOWS":
+                    cards_shows(round.player, round.cards);
+                    break;
+                default:
+            }
+        }
+
+        if (Actionindex == null) {
+            indexRound++;
+            document.getElementById('revisao-atual').innerHTML = indexRound + 1;
+        }
+
+
+        if (indexRound < RoundArray.rounds.length) {
+            next.disabled = false;
+        } else {
+            next.disabled = true;
+        }
+
+        if (indexRound >= 0) {
+            prev.disabled = false;
+        } else {
+            prev.disabled = true;
+        }
+
+        console.log('INDEX-NEXT = ' + indexRound);
     }
 
     prev.disabled = true;
     /*ACTION TEST*/
     next.onclick = function (e) {
-        r++;
-        console.log(r);
-        actionReplayer(allRounds[currentArray]);
+        console.log('Next Click:' + indexRound);
+        actionNext(allRounds[currentArray]);
     }
 
     prev.onclick = function (e) {
-        r--;
-        console.log(r);
-        indexRound--;
+        console.log('Prev Click:' + indexRound);
+        actionPrev(allRounds[currentArray]);
 
-        if (indexRound >= -1) {
-            next.disabled = false;
-            round = allRounds[currentArray].rounds[indexRound];
-
-            if (indexRound == -1) {
-                hole_cards_reverse();
-                prev.disabled = true;
-            } else {
-                switch (round.action) {
-                    case "FOLDS":
-                        folds_reverse(round.player);
-                        break;
-                    case "CALLS":
-                        blindCallBetRaise_reverse(indexRound, round.index, round.player, round.value, "CALLS", round.step);
-                        setTimeout(function () {
-                            deleteBlind(indexRound, round.player, round.step);
-                        }, 300);
-                        //document.getElementById("prev").click();
-                        break;
-                    case "RAISES":
-                        blindCallBetRaise_reverse(indexRound, round.index, round.player, round.value, "RAISES", round.step);
-
-                        setTimeout(function () {
-                            deleteBlind(indexRound, round.player, round.step);
-                        }, 300);
-                        break;
-                    case "FLOP":
-                        flopTurnRiver_reverse(["1", "2", "3"], round.cards);
-                        setTimeout(function () {
-                            pot_calculate_reverse('HOLE_CARDS', round.step);
-                            document.getElementById('pot-position').style.opacity = '0';
-                            document.getElementById('pot-position').style.marginTop = '0';
-                        }, 5);
-                        var audio = new Audio('./sound/holeCards.wav');
-                        audio.play();
-                        break;
-                    case "CHECKS":
-                        for (var i = 0; i < player_box.length; ++i) {
-                            if (player_box[i].getAttribute('data-player') == round.player) {
-                                var item = player_box[i];
-                                player_action_reverse(item, "CHECKS");
-                            }
-                        }
-                        //document.getElementById("prev").click();
-                        break;
-                    case "BETS":
-                        blindCallBetRaise_reverse(indexRound, round.index, round.player, round.value, "BETS", round.step);
-
-                        setTimeout(function () {
-                            deleteBlind(indexRound, round.player, round.step);
-                        }, 300);
-                        break;
-                    case "TURN":
-                        flopTurnRiver_reverse(["4"], round.cards);
-                        setTimeout(function () {
-                            pot_calculate_reverse('FLOP', round.step);
-                            document.getElementById('pot-position').style.opacity = '1';
-                            document.getElementById('pot-position').style.marginTop = '-100px';
-                        }, 5);
-                        var audio = new Audio('./sound/single_card.wav');
-                        audio.play();
-                        break;
-                    case "RIVER":
-                        flopTurnRiver_reverse(["5"], round.cards);
-                        setTimeout(function () {
-                            pot_calculate_reverse('TURN', round.step);
-                            document.getElementById('pot-position').style.opacity = '1';
-                            document.getElementById('pot-position').style.marginTop = '-100px';
-                        }, 5);
-                        var audio = new Audio('./sound/single_card.wav');
-                        audio.play();
-                        break;
-                    case "UNCALLED_BET":
-                        blindCallBetRaise(indexRound, round.actionIndex, round.player, round.value, "BETS", round.step);
-                        folds_reverse(round.player);
-                        break;
-                    case "COLLECTED_FROM_POT":
-                        var audio = new Audio('./sound/winReverse.wav');
-                        audio.play();
-                        pot_calculate_reverse('RIVER', round.step);
-                        collected_pot_reverse(round.player, round.value);
-                        foldsOthers_reverse(round.player);
-                        setTimeout(function () {
-                            //pot_calculate_reverse('RIVER', round.step);
-                            document.getElementById('pot-position').style.opacity = '1';
-                            document.getElementById('pot-position').style.marginTop = '-100px';
-                        }, 500);
-                        break;
-                    case "DOENST_SHOW_HAND":
-                        folds_reverse(round.player);
-                        break;
-                    case "SHOWS":
-                        cards_shows_reverse(round.player, round.cards);
-                        //folds_reverse(round.player);
-                        break;
-                    default:
-                }
-            }
-
-        } else {
-            next.disabled = false;
-            prev.disabled = true;
+    }
+    var playStart = 0;
+    play.onclick = function (e) {
+        play.style.display = 'none';
+        play.disabled = true;
+        pause.style.display = 'unset';
+        if (playStart == 0) {
+            go();
+            playStart = 1;
         }
-
-        //console.log(indexRound);
-
     }
 
 
-    function actionReplayer(RoundArray, Actionindex = null) {
+    function actionPrev(RoundArray, Actionindex = null) {
         if (Actionindex != null) {
             indexRound = Actionindex;
         }
-        if (indexRound < RoundArray.rounds.length) {
 
-            round = RoundArray.rounds[indexRound];
-            if (indexRound == -1) {
-                hole_cards();
-            } else {
-                switch (round.action) {
-                    case "FOLDS":
-                        folds(round.player);
-                        break;
-                    case "CALLS":
-                        createBlind(indexRound, round.player, round.step);
-
-                        setTimeout(function () {
-                            blindCallBetRaise(indexRound, round.index, round.player, round.value, "CALLS", round.step);
-                        }, 1);
-
-                        break;
-                    case "RAISES":
-                        createBlind(indexRound, round.player, round.step);
-                        //console.log(round);
-                        setTimeout(function () {
-                            blindCallBetRaise(indexRound, round.index, round.player, round.value, "RAISES", round.step);
-                        }, 5);
-                        break;
-                    case "FLOP":
-                        pot_calculate('HOLE_CARDS', round.step);
-                        flopTurnRiver(["1", "2", "3"], round.cards);
-                        var audio = new Audio('./sound/holeCards.wav');
-                        audio.play();
-                        break;
-                    case "CHECKS":
-                        for (var i = 0; i < player_box.length; ++i) {
-                            if (player_box[i].getAttribute('data-player') == round.player) {
-                                var item = player_box[i];
-                                player_action(item, "CHECKS");
-                            }
-                        }
-                        break;
-                    case "BETS":
-                        createBlind(indexRound, round.player, round.step);
-
-                        setTimeout(function () {
-                            blindCallBetRaise(indexRound, round.index, round.player, round.value, "BETS", round.step);
-                        }, 1);
-                        break;
-                    case "TURN":
-                        pot_calculate('FLOP', round.step);
-                        flopTurnRiver(["4"], round.cards);
-                        var audio = new Audio('./sound/single_card.wav');
-                        audio.play();
-                        break;
-                    case "RIVER":
-                        pot_calculate('TURN', round.step);
-                        flopTurnRiver(["5"], round.cards);
-                        var audio = new Audio('./sound/single_card.wav');
-                        audio.play();
-                        break;
-                    case "UNCALLED_BET":
-                        blindCallBetRaise_reverse(indexRound, round.actionIndex, round.player, round.value, "BETS", round.step);
-                        break;
-                    case "COLLECTED_FROM_POT":
-                        pot_calculate('RIVER', round.step);
-                        foldsOthers(round.player);
-                        setTimeout(function () {
-                            collected_pot(round.player, round.value);
-
-                            for (var i = 0; i < player_box.length; ++i) {
-                                if (player_box[i].getAttribute('data-player') == round.player) {
-                                    var item = player_box[i];
-                                    player_action(item, "WIN");
-                                }
-                            }
-                        }, 500);
-                        break;
-                    case "DOENST_SHOW_HAND":
-                        for (var i = 0; i < player_box.length; ++i) {
-                            if (player_box[i].getAttribute('data-player') == round.player) {
-                                var item = player_box[i];
-                                player_action(item, "DOENST_SHOW_HAND");
-                            }
-                        }
-                        break;
-                    case "SHOWS":
-                        cards_shows(round.player, round.cards);
-                        break;
-                    default:
-                }
-            }
-
-            setTimeout(function () {
-                if (Actionindex == null) { indexRound++; }
-                prev.disabled = false;
-
-            }, 5);
-
-        } else {
-            next.disabled = true;
-            prev.disabled = false;
+        if (Actionindex == null) {
+            indexRound--;
+            document.getElementById('revisao-atual').innerHTML = indexRound + 1;
         }
 
-        //console.log(indexRound);
+        if (indexRound == -1) {
+            hole_cards_reverse();
+        }
+
+        if (indexRound < RoundArray.rounds.length) {
+            next.disabled = false;
+            play.disabled = false;
+            playStart = 0;
+            stats = 0;
+        } else {
+            next.disabled = true;
+        }
+
+        if (indexRound >= 0) {
+            prev.disabled = false;
+        } else {
+            prev.disabled = true;
+        }
+
+        console.log('INDEX-PREV = ' + indexRound);
+
+        if (indexRound != -1) {
+
+            round = RoundArray.rounds[indexRound];
+
+            round = allRounds[currentArray].rounds[indexRound];
+
+            switch (round.action) {
+                case "FOLDS":
+                    folds_reverse(round.player);
+                    break;
+                case "CALLS":
+                    blindCallBetRaise_reverse(indexRound, round.index, round.player, round.value, "CALLS", round.step);
+                    setTimeout(function () {
+                        deleteBlind(indexRound, round.player, round.step);
+                    }, 300);
+                    //document.getElementById("prev").click();
+                    break;
+                case "RAISES":
+                    blindCallBetRaise_reverse(indexRound, round.index, round.player, round.value, "RAISES", round.step);
+
+                    setTimeout(function () {
+                        deleteBlind(indexRound, round.player, round.step);
+                    }, 300);
+                    break;
+                case "FLOP":
+                    flopTurnRiver_reverse(["1", "2", "3"], round.cards);
+                    setTimeout(function () {
+                        pot_calculate_reverse('HOLE_CARDS', round.step);
+                        document.getElementById('pot-position').style.opacity = '0';
+                        document.getElementById('pot-position').style.marginTop = '0';
+                    }, 5);
+                    var audio = new Audio('./sound/holeCards.wav');
+                    audio.play();
+                    break;
+                case "CHECKS":
+                    for (var i = 0; i < player_box.length; ++i) {
+                        if (player_box[i].getAttribute('data-player') == round.player) {
+                            var item = player_box[i];
+                            player_action_reverse(item, "CHECKS");
+                        }
+                    }
+                    //document.getElementById("prev").click();
+                    break;
+                case "BETS":
+                    blindCallBetRaise_reverse(indexRound, round.index, round.player, round.value, "BETS", round.step);
+
+                    setTimeout(function () {
+                        deleteBlind(indexRound, round.player, round.step);
+                    }, 300);
+                    break;
+                case "TURN":
+                    flopTurnRiver_reverse(["4"], round.cards);
+                    setTimeout(function () {
+                        pot_calculate_reverse('FLOP', round.step);
+                        document.getElementById('pot-position').style.opacity = '1';
+                        document.getElementById('pot-position').style.marginTop = '-100px';
+                    }, 5);
+                    var audio = new Audio('./sound/single_card.wav');
+                    audio.play();
+                    break;
+                case "RIVER":
+                    flopTurnRiver_reverse(["5"], round.cards);
+                    setTimeout(function () {
+                        pot_calculate_reverse('TURN', round.step);
+                        document.getElementById('pot-position').style.opacity = '1';
+                        document.getElementById('pot-position').style.marginTop = '-100px';
+                    }, 5);
+                    var audio = new Audio('./sound/single_card.wav');
+                    audio.play();
+                    break;
+                case "UNCALLED_BET":
+                    blindCallBetRaise(indexRound, round.actionIndex, round.player, round.value, "BETS", round.step);
+                    folds_reverse(round.player);
+                    break;
+                case "COLLECTED_FROM_POT":
+                    var audio = new Audio('./sound/winReverse.wav');
+                    audio.play();
+                    pot_calculate_reverse('RIVER', round.step);
+                    collected_pot_reverse(round.player, round.value);
+                    foldsOthers_reverse(round.player);
+                    setTimeout(function () {
+                        //pot_calculate_reverse('RIVER', round.step);
+                        document.getElementById('pot-position').style.opacity = '1';
+                        document.getElementById('pot-position').style.marginTop = '-100px';
+                    }, 500);
+                    break;
+                case "DOENST_SHOW_HAND":
+                    folds_reverse(round.player);
+                    break;
+                case "SHOWS":
+                    cards_shows_reverse(round.player, round.cards);
+                    //folds_reverse(round.player);
+                    break;
+                default:
+
+            }
+        }
     }
 
 

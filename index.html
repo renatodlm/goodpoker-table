@@ -23,6 +23,21 @@
 </head>
 
 <body>
+    <div class="goodpoker-controllers">
+        <div class="goodpoker-controllers-container">
+            <div id="gp-estudo">
+                <div id="gp-estudo-nome">
+                    Nome do estudo
+                </div>
+                <div id="gp-players-count">1/<span id="gp-players-total-count">0</span> Jogadores</div>
+                <div id="gp-revisoes"><span id="revisao-atual">0</span> de <span id="todas-revisoes">0</span> revisões
+                </div>
+            </div>
+            <div id="gp-tutorial">Ver Tutorial</div>
+            <div id="gp-sair">Sair da Sala</div>
+            <div id="gp-encerrar">ENCERRAR SALA</div>
+        </div>
+    </div>
     <div class="room d-flex">
         <div class="table d-flex align-items-center">
             <div class="action-area w-100">
@@ -89,15 +104,27 @@
         </div>
     </div>
     <div class="control-panel">
-        <div class="button-collun">
-            <button style="padding: 15px;" id="prev">Anterior</button>
-        </div>
-        <div class="button-collun">
-            <button style="padding: 15px;" id="play">play</button>
-            <button style="padding: 15px;display: none;" id="pause">pause</button>
-        </div>
-        <div class="button-collun">
-            <button style="padding: 15px;" id="next">Proximo</button>
+        <div class="control-panel-container">
+            <div class="control-panel-container-infos">
+                <p id="control-name">Nome da Sala de Estudo</p>
+                <p id="control-timer">00:00:00</p>
+            </div>
+            <div class="control-panel-container-buttons">
+                <div class="button-collun">
+                    <button style="padding: 15px;" id="prev">Anterior</button>
+                </div>
+                <div class="button-collun">
+                    <button style="padding: 15px;" id="play">play</button>
+                    <button style="padding: 15px;display: none;" id="pause">pause</button>
+                </div>
+                <div class="button-collun">
+                    <button style="padding: 15px;" id="next">Proximo</button>
+                </div>
+                <button class="control-panel-container-buttons-gravando">GRAVANDO...</button>
+            </div>
+            <div class="control-panel-container-timer">
+                <p><strong>00:00:00</strong> / 00:00:00</p>
+            </div>
         </div>
     </div>
     <div id='strawberry-plant' data-fruit='12'></div>
