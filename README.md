@@ -4,4 +4,4 @@ Goodpoker table
 
 npm install
 
-gulp
+run gulp
